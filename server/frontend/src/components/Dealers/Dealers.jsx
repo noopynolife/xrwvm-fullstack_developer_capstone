@@ -16,6 +16,7 @@ const Dealers = () => {
  
   const filterDealers = async (state) => {
     dealer_url_by_state = dealer_url_by_state+state;
+
     const res = await fetch(dealer_url_by_state, {
       method: "GET"
     });
@@ -32,6 +33,7 @@ const Dealers = () => {
     });
     const retobj = await res.json();
     if(retobj.status === 200) {
+      console.log(retobj)
       let all_dealers = Array.from(retobj.dealers)
       let states = [];
       all_dealers.forEach((dealer)=>{
